@@ -31,8 +31,10 @@ def grafik(bool=1, f = 50, t = 0): #bool
         w = 2 * math.pi * f
         if bool == 1:
             kordinati_Y = maxfloat() * math.sin(w * t + (math.pi * (i / 2)))
-        else:
+        elif bool == 2:
             kordinati_Y = Izc(maxfloat(), Zc()) * math.sin(w * t + (math.pi * (i / 2)))
+        else:
+            kordinati_Y = Izl(maxfloat(), Zl()) * math.sin(w * t + (math.pi * (i / 2)))
         print(math.sin(math.pi * (i / 2)))
         print(kordinati_Y)
         konec = i / 4 * 200, 0 - kordinati_Y
@@ -51,7 +53,7 @@ def Zc(c = 15900 * 10 ** -6, f = 50):
     return Xc
 
 
-def Zl(l = 64 * 10 ** -3, f = 50):
+def Zl(l = 64 * 10 ** -3, f = 5):
     w = 2 * math.pi * f
     Xl = w * l
     s = '%s * j' % Xl
@@ -65,7 +67,7 @@ def Izc(u, z):
 #Izc(maxfloat(), Zc())
     
 
-def Izc(u, z):
+def Izl(u, z):
     i = u / z
     return i #максмальное значение тока
 #Izc(maxfloat(), Zl())
